@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {Platform, KeyboardAvoidingView} from "react-native"
+import ChatScreen from "./ChatScreen";
+import CommentSection from "./CommentSection";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  
+  return(
+    <KeyboardAvoidingView
+    style ={{flex: 1}}
+    behavior ={Platform.os === "ios" ? "padding":"height"}
+    >
+  
+   <CommentSection/>;
+   <ChatScreen/>;
+   </KeyboardAvoidingView>
+   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
